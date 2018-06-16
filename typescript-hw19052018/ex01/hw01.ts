@@ -1,5 +1,5 @@
-import {functions} from './interface';
-import {Barbarian} from './classBarbarian';
+import {actions} from './actions';
+import {Barbarian} from './barbarian';
 import {Weapon} from './weapon';
 
 let hero:Barbarian = new Barbarian(100, "Дрипи", "Прокъсани");

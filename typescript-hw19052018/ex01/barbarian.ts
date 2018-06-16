@@ -1,6 +1,6 @@
-import {functions} from './interface';
+import {actions} from './actions';
 
-export class Barbarian implements functions{
+export class Barbarian implements actions{
     private damage: number;
     plateArmor:string;
     pants: string;
@@ -11,7 +11,7 @@ export class Barbarian implements functions{
         this.pants = pant;
     }
 
-    show():any{
+    show():void{
         console.log(`HP: ${this.damage} Attributes: ${this.plateArmor} ${this.pants}`);
     }
     fight():void{
