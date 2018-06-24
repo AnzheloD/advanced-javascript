@@ -20,9 +20,7 @@ readStream.pipe(writeStream);
 
 readStream.on('data', (chunk)=>{
     percentUploaded += (chunk.length / fileSize * 100);
-    process.send(
-        (`Child 2: ${Math.floor(percentUploaded)} % uploaded`)
-    );
+    process.send(`Child 2: ${Math.floor(percentUploaded)} % uploaded`);
     readStream.pause();
     setTimeout(()=>{
         readStream.resume();
@@ -30,13 +28,9 @@ readStream.on('data', (chunk)=>{
 });
 
 readStream.on('end',()=>{
-    process.send(
-        (`\nChild 2: Reading Finished: ${readStream.bytesRead}\n`)
-    );
+    process.send(`\nChild 2: Reading Finished: ${readStream.bytesRead}\n`);
 });
 
 writeStream.on('close', ()=>{
-    process.send(
-        (`\nChild 2: Writting Finished: ${writeStream.bytesWritten} bytes uploaded \n`)
-    );
+    process.send(`\nChild 2: Writting Finished: ${writeStream.bytesWritten} bytes uploaded \n`);
 });
